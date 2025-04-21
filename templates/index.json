@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "featured-collection-hero",
+      "settings": {
+        "image": "shopify://shop_images/placeholder.svg",
+        "heading": "Everyday items, we have something to suit every occasion.",
+        "text": "<p>At suspendisse augue lectus arcu, accumsan ut sit posuere vitae sit tincidunt semper eu proin leo gravida cursus.</p>",
+        "button_label": "Shop All Everyday Items",
+        "button_link": "#",
+        "collection": "frontpage",
+        "products_to_show": 6,
+        "products_per_view": 3,
+        "color_scheme": "light",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
