@@ -62,9 +62,8 @@
      x-init="init()"
 >
 
-    <div class="w-full overflow-hidden">
-        <div class="relative w-full h-[60vh] sm:h-screen
-                md:fixed md:inset-y-0 md:left-0 md:w-1/2 md:h-screen overflow-hidden">
+    <div class="w-full">
+        <div class="relative w-full h-[60vh] sm:h-screen md:fixed md:inset-y-0 md:left-0 md:w-1/2 md:h-screen overflow-hidden">
             {% if section.settings.image %}
                 <img src="{{ section.settings.image }}"
                      alt="{{ section.settings.image.alt | escape }}"
@@ -77,85 +76,83 @@
             {% endif %}
         </div>
 
-        <div class="flex flex-col mt-2 md:justify-center md:items-center md:mt-12 px-4 sm:px-6 py-8 md:ml-[50%]">
-            <div class="mb-8 md:mt-10 -mt-[27vh] z-10 text-white relative md:text-black max-w-full md:max-w-[90%]">
-                {% if section.settings.heading %}
-                    <h2 class="leading-[130%] text-[20px] md:text-[41.25px] font-bold md:leading-[130%] font-avantgarde
-                     w-[20rem] sm:w-[24rem] md:w-[35rem] ml-4 md:ml-0 mb-4">
-                        {{ section.settings.heading }}
-                    </h2>
-                {% endif %}
-                {% if section.settings.text %}
-                    <div class="hidden md:block text-gray-600 text-base md:text-xl font-avenir mb-12
-                      w-full md:w-[35rem]">
-                        {{ section.settings.text }}
-                    </div>
-                {% endif %}
-                {% if section.settings.button_label and section.settings.button_link %}
-                    <a href="{{ section.settings.button_link }}"
-                       class="inline-block border-b-2 border-white font-bold font-avenir leading-[100%]
-                        text-[13px] md:border-black ml-4 md:ml-0 pb-1 md:mb-12 text-white md:text-black
-                        hover:opacity-80 transition-opacity">
-                        {{ section.settings.button_label }}
-                    </a>
-                {% endif %}
-            </div>
-
-            <div class="relative w-full">
-                <div x-ref="scrollArea"
-                     class="overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide cursor-grab active:cursor-grabbing
-                        md:w-full ml-4 md:ml-[7vw] w-full"
-                     style="-webkit-overflow-scrolling: touch; touch-action: pan-x;"
-                     x-on:wheel="if ($event.deltaMode === 1) { $refs.scrollArea.scrollLeft += $event.deltaY; $event.preventDefault() }">
-                    <div class="flex w-max" x-ref="scrollContent">
-                        {%- assign product_titles = "Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans" | split: "," -%}
-                        {% for title in product_titles %}
-                            <div class="pl-2 first:pl-0 pr-5 w-[11rem] sm:w-[12rem] md:w-[22%] flex-shrink-0"
-                                 {% if forloop.first %}x-ref="firstSlide"{% endif %}
-                                 data-card>
-                                <div class="bg-gray-100  overflow-hidden mb-3 h-[13rem] sm:h-[14rem] md:h-[20rem]
-                            flex items-center justify-center">
-                                    {% case forloop.index %}
-                                        {% when 1 %}{% assign icon_svg = 'icon-card-1.svg' %}
-                                        {% when 2 %}{% assign icon_svg = 'icon-card-2.svg' %}
-                                        {% when 3 %}{% assign icon_svg = 'icon-card-3.svg' %}
-                                        {% when 4 %}{% assign icon_svg = 'icon-card-1.svg' %}
-                                        {% when 5 %}{% assign icon_svg = 'icon-card-2.svg' %}
-                                        {% else %}{% assign icon_svg = 'icon-card-1.svg' %}
-                                    {% endcase %}
-                                    <img src="{{ icon_svg | asset_url }}"
-                                         alt="{{ title }}"
-                                         class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="mb-3 font-avenir text-[13px] leading-[160%]">{{ title }}</h3>
-                                <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center text-xs">
-                                    <span class="font-medium mb-2 md:mb-0 font-avenir text-[13px] leading-[160%]">$99.99</span>
-                                    <div class="flex space-x-1 mt-1 sm:mt-0">
-                                        <span class="w-3 h-3 rounded-full bg-[#99C3CC]"></span>
-                                        <span class="w-3 h-3 rounded-full bg-[#CC9999]"></span>
-                                        <span class="w-3 h-3 rounded-full bg-[#CB99CC]"></span>
-                                        <span class="w-3 h-3 rounded-full bg-[#A6CC99]"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+        <div class="flex flex-col -mt-60 md:mt-12 relative px-4 sm:px-6  z-10 py-8 md:ml-[50%]">
+            <div class="w-full ml-4 md:ml-[7vw]">
+                <div class="mb-8 md:mt-10  ">
+                    {% if section.settings.heading %}
+                        <h2 class="leading-[130%] text-[20px] text-white md:text-black md:text-[41.25px] font-bold md:leading-[130%] font-avantgarde
+             w-[20rem] sm:w-[24rem] md:w-[35rem] md:mb-6 mb-4">
+                            {{ section.settings.heading }}
+                        </h2>
+                    {% endif %}
+                    {% if section.settings.text %}
+                        <div class="hidden md:block text-gray-600 text-base  md:text-xl font-avenir mb-12 w-full md:w-[35rem]">
+                            {{ section.settings.text }}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.button_label and section.settings.button_link %}
+                        <a href="{{ section.settings.button_link }}"
+                           class="inline-block border-b-2 border-white md:mb-12 font-bold font-avenir leading-[100%]
+               text-[13px] md:border-black pb-1 text-white md:text-black hover:opacity-80 transition-opacity">
+                            {{ section.settings.button_label }}
+                        </a>
+                    {% endif %}
                 </div>
 
-                <button class="absolute md:top-[45%] top-[35%] md:left-20 left-2 transform -translate-y-1/2 p-2 border border-black/10 z-10"
-                        x-show="canScrollPrev"
-                        x-on:click="goPrev">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button class="absolute md:top-[45%] top-[35%] right-2 transform -translate-y-1/2 p-2 border border-black/10 z-10"
-                        x-show="canScrollNext"
-                        x-on:click="goNext">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
+                <div class="relative w-full mt-6 md:mt-8">
+                    <div x-ref="scrollArea"
+                         class="overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide cursor-grab active:cursor-grabbing w-full"
+                         style="-webkit-overflow-scrolling: touch; touch-action: pan-x;"
+                         x-on:wheel="if ($event.deltaMode === 1) { $refs.scrollArea.scrollLeft += $event.deltaY; $event.preventDefault() }">
+                        <div class="flex w-max" x-ref="scrollContent">
+                            {%- assign product_titles = "Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans,Organic Skinny High Waist Raw Hem Jeans" | split: "," -%}
+                            {% for title in product_titles %}
+                                <div class="pl-2 first:pl-0 pr-5 w-[11rem] sm:w-[12rem] md:w-[22%] flex-shrink-0"
+                                     {% if forloop.first %}x-ref="firstSlide"{% endif %}
+                                     data-card>
+                                    <div class="bg-gray-100 overflow-hidden mb-3 h-[13rem] sm:h-[14rem] md:h-[20rem] flex items-center justify-center">
+                                        {% case forloop.index %}
+                                            {% when 1 %}{% assign icon_svg = 'icon-card-1.svg' %}
+                                            {% when 2 %}{% assign icon_svg = 'icon-card-2.svg' %}
+                                            {% when 3 %}{% assign icon_svg = 'icon-card-3.svg' %}
+                                            {% when 4 %}{% assign icon_svg = 'icon-card-1.svg' %}
+                                            {% when 5 %}{% assign icon_svg = 'icon-card-2.svg' %}
+                                            {% else %}{% assign icon_svg = 'icon-card-1.svg' %}
+                                        {% endcase %}
+                                        <img src="{{ icon_svg | asset_url }}"
+                                             alt="{{ title }}"
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="mb-3 font-avenir text-[13px] leading-[160%]">{{ title }}</h3>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center text-xs">
+                                        <span class="font-medium mb-2 md:mb-0 font-avenir text-[13px] leading-[160%]">$99.99</span>
+                                        <div class="flex space-x-1 mt-1 sm:mt-0">
+                                            <span class="w-3 h-3 rounded-full bg-[#99C3CC]"></span>
+                                            <span class="w-3 h-3 rounded-full bg-[#CC9999]"></span>
+                                            <span class="w-3 h-3 rounded-full bg-[#CB99CC]"></span>
+                                            <span class="w-3 h-3 rounded-full bg-[#A6CC99]"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <button x-show="canScrollPrev"
+                            class="absolute md:top-[45%] top-[35%] md:-left-10 -left-6 transform -translate-y-1/2 z-50 p-2 border border-black/10"
+                            x-on:click="goPrev">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="absolute hidden md:block md:top-[45%] top-[35%] border border-black/10 right-2 md:right-44 transform -translate-y-1/2 z-50 p-2"
+                            x-on:click="goNext">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                </div>
             </div>
         </div>
     </div>
@@ -165,12 +162,12 @@
 {
   "name": "Featured Collection Hero",
   "settings": [
-    { "type": "image_picker", "id": "image",          "label": "Hero Image" },
-    { "type": "text",         "id": "badge_text",     "label": "Badge Text",    "default": "New Collection" },
-    { "type": "text",         "id": "heading",        "label": "Heading",       "default": "Everyday items, we have something to suit every occasion." },
-    { "type": "richtext",     "id": "text",           "label": "Text",          "default": "<p>At suspendisse augue lectus arcu, accumsan ut sit posuere vitae sit tincidunt semper eu proin leo gravida cursus.</p>" },
-    { "type": "text",         "id": "button_label",   "label": "Button Label",  "default": "Shop All Everyday Items" },
-    { "type": "url",          "id": "button_link",    "label": "Button Link" }
+    { "type": "image_picker", "id": "image", "label": "Hero Image" },
+    { "type": "text", "id": "badge_text", "label": "Badge Text", "default": "New Collection" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Everyday items, we have something to suit every occasion." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>At suspendisse augue lectus arcu, accumsan ut sit posuere vitae sit tincidunt semper eu proin leo gravida cursus.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button Label", "default": "Shop All Everyday Items" },
+    { "type": "url", "id": "button_link", "label": "Button Link" }
   ],
   "presets": [ { "name": "Featured Collection Hero" } ]
 }
