@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        avant: ['AvantGarde', 'sans-serif'],
+        avantgarde: ['"ITC Avant Garde Gothic Pro"', 'sans-serif'],
+        avenir: ['Avenir', 'sans-serif'],
       },
     },
   },
