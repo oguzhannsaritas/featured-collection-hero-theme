@@ -78,7 +78,7 @@
         </div>
 
         <div class="flex flex-col mt-2 md:justify-center md:items-center md:mt-12 px-4 sm:px-6 py-8 md:ml-[50%]">
-            <div class="mb-8 md:mt-10 -mt-[20vh] z-10 text-white relative md:text-black max-w-full md:max-w-[90%]">
+            <div class="mb-8 md:mt-10 -mt-[25vh] z-10 text-white relative md:text-black max-w-full md:max-w-[90%]">
                 {% if section.settings.heading %}
                     <h2 class="leading-[130%] text-[20px] md:text-[41.25px]  font-bold md:leading-[130%] font-avantgarde w-[20rem] md:w-[35rem] ml-4 md:ml-0 mb-4">
                         {{ section.settings.heading }}
@@ -99,7 +99,7 @@
 
             <div class="relative w-full">
                 <div x-ref="scrollArea"
-                     class="overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide cursor-grab active:cursor-grabbing md:w-full ml-4 md:ml-[7vw] w-full"
+                     class="overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide cursor-grab  active:cursor-grabbing md:w-full ml-4 md:ml-[7vw] w-full"
                      style="-webkit-overflow-scrolling: touch; touch-action: pan-x;"
                      x-on:wheel="if ($event.deltaMode === 1) { $refs.scrollArea.scrollLeft += $event.deltaY; $event.preventDefault() }">
                     <div class="flex w-max" x-ref="scrollContent">
