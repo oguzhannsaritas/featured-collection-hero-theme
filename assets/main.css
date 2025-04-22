@@ -835,6 +835,14 @@ video {
   margin-top: -30vh;
 }
 
+.-mt-\[28vh\] {
+  margin-top: -28vh;
+}
+
+.-mt-\[27vh\] {
+  margin-top: -27vh;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2681,6 +2689,10 @@ video {
 
   .sm\:w-\[12rem\] {
     width: 12rem;
+  }
+
+  .sm\:w-\[24rem\] {
+    width: 24rem;
   }
 
   .sm\:flex-row {
